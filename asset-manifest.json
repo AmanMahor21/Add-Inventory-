@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/%7BAdd-Inventory%7D/static/css/main.72307331.css",
-    "main.js": "/%7BAdd-Inventory%7D/static/js/main.864223bc.js",
-    "static/js/453.4af06618.chunk.js": "/%7BAdd-Inventory%7D/static/js/453.4af06618.chunk.js",
-    "index.html": "/%7BAdd-Inventory%7D/index.html",
-    "main.72307331.css.map": "/%7BAdd-Inventory%7D/static/css/main.72307331.css.map",
-    "main.864223bc.js.map": "/%7BAdd-Inventory%7D/static/js/main.864223bc.js.map",
-    "453.4af06618.chunk.js.map": "/%7BAdd-Inventory%7D/static/js/453.4af06618.chunk.js.map"
+    "main.css": "/Add-Inventory/static/css/main.72307331.css",
+    "main.js": "/Add-Inventory/static/js/main.6ed37e1d.js",
+    "static/js/453.4af06618.chunk.js": "/Add-Inventory/static/js/453.4af06618.chunk.js",
+    "index.html": "/Add-Inventory/index.html",
+    "main.72307331.css.map": "/Add-Inventory/static/css/main.72307331.css.map",
+    "main.6ed37e1d.js.map": "/Add-Inventory/static/js/main.6ed37e1d.js.map",
+    "453.4af06618.chunk.js.map": "/Add-Inventory/static/js/453.4af06618.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72307331.css",
-    "static/js/main.864223bc.js"
+    "static/js/main.6ed37e1d.js"
   ]
 }
