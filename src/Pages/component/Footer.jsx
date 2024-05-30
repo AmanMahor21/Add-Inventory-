@@ -84,7 +84,10 @@ const Footer = () => {
   const handle_DeselectAll = () => handle_SelectAll_DeselectAll(false);
 
   return (
-    <footer className="p-4 bg-secondary align-items-lg-baseline fixed-bottom">
+    <footer
+      className="p-4 align-items-lg-baseline fixed-bottom"
+      style={{ backgroundColor: "rgb(104 138 161)" }}
+    >
       {!selectedItem && (
         <div className=" d-flex gap-2 justify-content-between">
           <div className="">
