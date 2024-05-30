@@ -19,8 +19,13 @@ const AddInventory = () => {
     <invertoryContext.Provider value={inventoryValue}>
       <>
         <div className="d-flex flex-column " style={{ height: "100vh" }}>
-          <div className="" style={{backgroundColor:"rgb(104 138 161)"}}>
-            <h3 className="ps-4 pt-4">Add Inventory</h3>
+          <div className="" style={{ backgroundColor: "rgb(104 138 161)" }}>
+            <h3
+              className="ps-4 pt-4 font"
+              style={{ fontFamily: "Ubuntu Sans Mono", fontWeight: "500" }}
+            >
+              Add Inventory
+            </h3>
             <KeyboardHeader />
           </div>
 
