@@ -45,7 +45,6 @@ const EventRecords = ({
       />
       <InputNumber
         placeholder={"Quantity"}
-        index={eventindex}
         value={records && records.quantity}
         selectChange={(data) => {
           selectChange(eventindex, data, recordIndex);
@@ -103,7 +102,6 @@ const EventRecords = ({
       />
       <InputNumber
         placeholder={"First seat"}
-        index={eventindex}
         value={records.FirstSeat}
         selectChange={(data) => {
           selectChange(eventindex, data, recordIndex);
@@ -112,13 +110,17 @@ const EventRecords = ({
       />
       <SymbolInput
         placeholder={"Face value"}
-        selectChange={selectChange}
+        selectChange={(data) => {
+          selectChange(eventindex, data, recordIndex);
+        }}
         name="FaceValue"
         value={records.FaceValue}
       />
       <SymbolInput
         placeholder={"Processed price"}
-        selectChange={selectChange}
+        selectChange={(data) => {
+          selectChange(eventindex, data, recordIndex);
+        }}
         name="ProcessedPrice"
         value={records.ProcessedPrice}
       />

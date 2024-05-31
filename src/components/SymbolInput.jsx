@@ -1,10 +1,10 @@
 import React from "react";
 
-const SymbolInput = ({ selectChange, ...rest }) => {
+const SymbolInput = ({ selectChange, placeholder, name, value }) => {
   return (
     <div className="col-auto">
       <label class="visually-hidden" for="autoSizingInputGroup">
-        {rest.placeholder}
+        {placeholder}
       </label>
 
       <div className="input-group">
@@ -15,19 +15,20 @@ const SymbolInput = ({ selectChange, ...rest }) => {
           type="number"
           className="ps-2 form-control"
           id="autoSizingInputGroup"
-          name={rest.name}
+          name={name}
           style={{ width: "145px", fontSize: "14px" }}
-          value={rest.value}
-          placeholder={rest.placeholder}
+          value={value}
+          placeholder={placeholder}
           aria-label="Username"
           aria-describedby="basic-addon1"
           onChange={(e) => {
             let event = {
-              name: rest.name,
+              name: name,
               value: e.target.value,
             };
             selectChange(event);
           }}
+          debugger
         />
       </div>
     </div>

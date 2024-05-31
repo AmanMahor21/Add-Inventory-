@@ -9,6 +9,7 @@ const Table = () => {
 
   // EDITING TABLE'S EVENT KEYBOARD
   const selectChange = (eventIndex, data, recordIndex) => {
+    debugger
     setlist((prev) => {
       return prev.map((ele, i) => {
         if (i === eventIndex) {
