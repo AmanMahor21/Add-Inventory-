@@ -9,7 +9,6 @@ const Table = () => {
 
   // EDITING TABLE'S EVENT KEYBOARD
   const selectChange = (eventIndex, data, recordIndex) => {
-    debugger
     setlist((prev) => {
       return prev.map((ele, i) => {
         if (i === eventIndex) {
@@ -74,7 +73,7 @@ const Table = () => {
                 <div className="accordion-item">
                   <h2 className="accordion-header">
                     <button
-                      className="accordion-button"
+                      className="accordion-button pt-0 pb-0 accordian_header"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target={`#panelsStayOpen-${index}`}
@@ -84,10 +83,43 @@ const Table = () => {
                       <input
                         type="checkbox"
                         name="eventCheckbox"
-                        className="me-2"
+                        className="me-2 "
                         checked={item.eventCheckbox}
                       />
-                      {item?.event}
+                      <span className="d-flex justify-content-between">
+                        <span
+                          className="pb-3 pt-3 ps-3 "
+                          style={{
+                            borderRight: "1px solid rgb(183 198 203)  ",
+                            width: "300px",
+                          }}
+                        >
+                          {item?.event}
+                        </span>
+                        <span
+                          style={{
+                            borderRight: "1px solid rgb(183 198 203)  ",
+
+                            width: "250px",
+                          }}
+                          className="pb-3 pt-3 ps-3 "
+                        >
+                          {item?.eventDate}
+                        </span>
+                        <span
+                          style={{
+                            borderRight: "1px solid rgb(183 198 203)  ",
+
+                            width: "120px",
+                          }}
+                          className="pb-3 pt-3 ps-3 "
+                        >
+                          {item?.time}
+                        </span>
+                        <span className="pb-3 pt-3 ps-3 ">
+                          {item?.location}
+                        </span>
+                      </span>
                     </button>
                   </h2>
                   <div

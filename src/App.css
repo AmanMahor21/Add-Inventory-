@@ -7,9 +7,12 @@ body {
 
 .form-floating label {
   font-size: 12px;
+ width: fit-content;
   top: -22px;
 }
-
+.accordian_header{
+  
+}
 button svg {
   margin: 0 4px 3px 0;
 }

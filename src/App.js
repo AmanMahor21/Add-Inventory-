@@ -12,6 +12,9 @@ function App() {
 
   const [saveData, setSaveData] = useState({
     event: "",
+    eventDate:"",
+    time:"",
+    location:"",
     eventCheckbox: false,
     eventRecords: [
       {

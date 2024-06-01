@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import Select from "react-select";
+import Select, { components } from "react-select";
+
 import { userContext } from "../../App";
 import DropSelect from "../../components/DropSelect";
 import InputNumber from "../../components/InputNumber";
@@ -77,9 +78,17 @@ const KeyboardHeader = () => {
 
   //TURNING ON KEYBOARD FIELD
   const handleClick = (e, p) => {
-    setSaveData((prev) => ({ ...prev, event: e?.label }));
+    console.log(e);
+    setSaveData((prev) => ({
+      ...prev,
+      event: e?.label,
+      eventDate: e?.eventDate,
+      time: e?.time,
+      location: e?.location,
+    }));
     return e;
   };
+  console.log(saveData);
 
   // SELECT ALL ACCORDIAN
   const handle_AddToAll = (e) => {
@@ -108,14 +117,82 @@ const KeyboardHeader = () => {
       };
     });
   };
+  const CustomOption = ({ isDisabled, isSelected, ...props }) => {
+    return (
+      <components.Option {...props}>
+        <div
+          className="pt-1 pb-1"
+          style={{ border: "1px solid #DFE2E4", borderBottom: "none" }}
+        >
+          {props.data.label}
+        </div>
+        <table>
+          <tr className="d-flex">
+            <td
+              className="pt-1 pb-1"
+              style={{ border: "1px solid #DFE2E4", width: "130px" }}
+            >
+              {props.data.eventDate}
+            </td>
+            <td
+              className="pt-1 pb-1"
+              style={{
+                border: "1px solid #DFE2E4",
+                width: "70px",
+                borderLeft: "none",
+              }}
+            >
+              {props.data.time}
+            </td>
+            <td
+              className="pt-1 pb-1"
+              style={{
+                border: "1px solid #DFE2E4",
+                width: "360px",
+                borderLeft: "none",
+              }}
+            >
+              {props.data.location}
+            </td>
+          </tr>
+        </table>
+      </components.Option>
+    );
+  };
+  let customStyle = {
+    control: (provided) => ({
+      ...provided,
+      fontSize: "14px",
+      width: "600px",
+      minWidth: "400px",
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      fontSize: "13px",
+      width: "600px",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      width: "584px",
+      minWidth: "400px",
+      backgroundColor: state.isFocused ? "#e7eef3 " : "",
+    }),
+    container: (prov) => ({
+      ...prov,
+      minMenuHeight: "11px",
+    }),
 
+    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+  };
   return (
     <>
       <div className="ps-4 pe-4  pt-lg-3">
         <Select
           className="basic-single"
           classNamePrefix="select"
+          styles={customStyle}
           isDisabled={selected}
+          components={{ Option: CustomOption }}
           options={EVENT_LIST}
           onChange={handleClick}
           noOptionsMessage={() => {
