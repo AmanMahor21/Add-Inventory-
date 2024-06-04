@@ -7,6 +7,9 @@ import { RxCrossCircled } from "react-icons/rx";
 import { FaRegEdit } from "react-icons/fa";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
+import { MdDateRange } from "react-icons/md";
+import { v4 as uuid } from "uuid";
+import { IoCopy } from "react-icons/io5";
 
 const Footer = () => {
   const { setlist, list, getSavedEvent } = useContext(userContext);
@@ -59,6 +62,51 @@ const Footer = () => {
     setSelectedItem(false);
   };
 
+  // HANDLE CLONE TO ALL BTN
+  const cloneToNew_Btn = () => {
+    setlist((prev) => {
+      let checked_keyboard = prev.flatMap((ele) =>
+        ele.eventRecords.filter((same) => same.selected)
+      );
+      let p = {
+        eventRecords: checked_keyboard.map((ts) => {
+          return { ...ts, index: uuid().slice(0, 8), selected: false };
+        }),
+      };
+      return [p, ...prev];
+    });
+  };
+
+  //HANDLE CLONE BTN
+  const clone_Btn = () => {
+    setlist((prev) => {
+      let cloneObj = prev?.flatMap((ele) => {
+        return ele?.eventRecords?.filter((e, i) => e.selected);
+      });
+      let c = cloneObj;
+      let fnd = prev.findIndex((itm) =>
+        itm.eventRecords.some((chk) => chk.selected)
+      );
+      let clonedTable = prev.map((cln, ind) => {
+        if (ind === fnd) {
+          return {
+            ...cln,
+            eventRecords: [...cln.eventRecords, ...c],
+          };
+        } else return cln;
+      });
+      return clonedTable.flatMap((item, j) => {
+        return {
+          ...item,
+          eventRecords: item.eventRecords.flatMap((fil, x) => ({
+            ...fil,
+            selected: false,
+          })),
+        };
+      });
+    });
+  };
+
   //HANDLE CALLBACK FUN OF SelectAll AND DeselectAll BTN
   const handle_SelectAll_DeselectAll = (isSelected) => {
     setlist((prev) => {
@@ -93,7 +141,7 @@ const Footer = () => {
           <div className="">
             <button
               type="button"
-              className="btn btn-dark me-2"
+              className="btn btn-outline-light me-2 border-0"
               onClick={handle_SelectAll}
             >
               <LuBoxSelect />
@@ -101,7 +149,7 @@ const Footer = () => {
             </button>
             <button
               type="button"
-              className="btn btn-light me-2"
+              className="btn btn-outline-light me-2 border-0"
               onClick={handle_DeselectAll}
             >
               <RxCrossCircled />
@@ -109,7 +157,7 @@ const Footer = () => {
             </button>
             <button
               type="button"
-              className="btn btn-primary me-2"
+              className="btn btn-outline-light me-2 border-0"
               onClick={handleDlt}
             >
               <MdDelete />
@@ -117,7 +165,22 @@ const Footer = () => {
             </button>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-outline-light me-2 border-0"
+              onClick={clone_Btn}
+            >
+              <IoCopy /> Clone
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-light me-2 border-0"
+              onClick={cloneToNew_Btn}
+            >
+              <MdDateRange /> Clone to new
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-outline-light me-2 border-0"
               onClick={handle_MumltiEdit}
             >
               <FaRegEdit />
@@ -127,7 +190,7 @@ const Footer = () => {
           <div>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-light me-4"
               onClick={handle_SaveDraft}
             >
               <BsBoxArrowUpRight />

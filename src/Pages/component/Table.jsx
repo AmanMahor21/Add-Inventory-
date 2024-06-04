@@ -1,7 +1,10 @@
-import React, { StrictMode, useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { userContext } from "../../App";
 import EventRecords from "./EventRecords";
 import { invertoryContext } from "../AddInventory";
+import Swal from "sweetalert2";
+
+import EventDropDown from "../../components/EventDropDown";
 
 const Table = () => {
   const { list, setlist } = useContext(userContext);
@@ -53,6 +56,28 @@ const Table = () => {
     });
   };
 
+  // HANDLE CLONE SELECT EVENT
+  const cloneDropDown = (e) => {
+    setlist((prev) => {
+      if (!prev.find((obj) => obj.event === e.label)) {
+        const clone = {
+          ...prev[0],
+          eventCheckbox: false,
+          event: e.label,
+          eventDate: e.eventDate,
+          time: e.time,
+          location: e.location,
+        };
+        return [clone, ...prev.slice(1)];
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Event Already Exist",
+        });
+        return [...prev];
+      }
+    });
+  };
   return (
     <div
       className=" d-flex flex-column align-content-lg-start"
@@ -80,46 +105,50 @@ const Table = () => {
                       aria-expanded="true"
                       aria-controls={`panelsStayOpen-${index}`}
                     >
-                      <input
-                        type="checkbox"
-                        name="eventCheckbox"
-                        className="me-2 "
-                        checked={item.eventCheckbox}
-                      />
-                      <span className="d-flex justify-content-between">
-                        <span
-                          className="pb-3 pt-3 ps-3 "
-                          style={{
-                            borderRight: "1px solid rgb(183 198 203)  ",
-                            width: "300px",
-                          }}
-                        >
-                          {item?.event}
-                        </span>
-                        <span
-                          style={{
-                            borderRight: "1px solid rgb(183 198 203)  ",
-
-                            width: "250px",
-                          }}
-                          className="pb-3 pt-3 ps-3 "
-                        >
-                          {item?.eventDate}
-                        </span>
-                        <span
-                          style={{
-                            borderRight: "1px solid rgb(183 198 203)  ",
-
-                            width: "120px",
-                          }}
-                          className="pb-3 pt-3 ps-3 "
-                        >
-                          {item?.time}
-                        </span>
-                        <span className="pb-3 pt-3 ps-3 ">
-                          {item?.location}
-                        </span>
-                      </span>
+                      {!item.event ? (
+                        <EventDropDown cloneDropDown={cloneDropDown} />
+                      ) : (
+                        <>
+                          <input
+                            type="checkbox"
+                            name="eventCheckbox"
+                            className="me-2 "
+                            checked={item.eventCheckbox}
+                          />
+                          <span className="d-flex justify-content-between">
+                            <span
+                              className="pb-3 pt-3 ps-3 "
+                              style={{
+                                borderRight: "1px solid rgb(183 198 203)  ",
+                                width: "300px",
+                              }}
+                            >
+                              {item?.event}
+                            </span>
+                            <span
+                              style={{
+                                borderRight: "1px solid rgb(183 198 203)  ",
+                                width: "250px",
+                              }}
+                              className="pb-3 pt-3 ps-3 "
+                            >
+                              {item?.eventDate}
+                            </span>
+                            <span
+                              style={{
+                                borderRight: "1px solid rgb(183 198 203)  ",
+                                width: "120px",
+                              }}
+                              className="pb-3 pt-3 ps-3 "
+                            >
+                              {item?.time}
+                            </span>
+                            <span className="pb-3 pt-3 ps-3 ">
+                              {item?.location}
+                            </span>
+                          </span>
+                        </>
+                      )}
                     </button>
                   </h2>
                   <div
