@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../../App";
 import { invertoryContext } from "../AddInventory";
 import { MdDelete } from "react-icons/md";
@@ -10,11 +10,45 @@ import { FiEdit } from "react-icons/fi";
 import { MdDateRange } from "react-icons/md";
 import { v4 as uuid } from "uuid";
 import { IoCopy } from "react-icons/io5";
+import { IoMdMenu } from "react-icons/io";
 
 const Footer = () => {
   const { setlist, list, getSavedEvent } = useContext(userContext);
-  const { setCopyRecord, copyRecord, selectedItem, setSelectedItem } =
-    useContext(invertoryContext);
+  const {
+    setCopyRecord,
+    copyRecord,
+    selectedItem,
+    setSelectedItem,
+    checkLabel,
+    setCheckLabel,
+  } = useContext(invertoryContext);
+
+  // console.log(checkLabel);
+  // const [CheckLabel , setCheckLabel] = useState({
+  // singleRow:"",
+  // wholeTable:"",
+  // })
+  useEffect(() => {
+    setlist((prev) => {
+      let filterEvent = prev.filter((ele) =>
+        ele.eventRecords.some((itm) => itm.selected)
+      );
+
+      let filterRow = prev.flatMap((bg) =>
+        bg.eventRecords.filter((sml) => sml.selected)
+      );
+      setCheckLabel((prev) => {
+        return {
+          ...prev,
+          singleRow: filterRow.length,
+          wholeTable: filterEvent.length,
+        };
+      });
+      console.log(filterEvent);
+      console.log(filterRow);
+      return prev;
+    });
+  }, [checkLabel]);
 
   //HANDLE DELETE BTN
   const handleDlt = () => {
@@ -83,18 +117,20 @@ const Footer = () => {
       let cloneObj = prev?.flatMap((ele) => {
         return ele?.eventRecords?.filter((e, i) => e.selected);
       });
-      let c = cloneObj;
+
       let fnd = prev.findIndex((itm) =>
         itm.eventRecords.some((chk) => chk.selected)
       );
+      // CLONING CHECKED KEYBOARD ROW TO SAME EVENT
       let clonedTable = prev.map((cln, ind) => {
         if (ind === fnd) {
           return {
             ...cln,
-            eventRecords: [...cln.eventRecords, ...c],
+            eventRecords: [...cln.eventRecords, ...cloneObj],
           };
         } else return cln;
       });
+      // UNSELECT CHECK ROW AFTER CLONING
       return clonedTable.flatMap((item, j) => {
         return {
           ...item,
@@ -138,7 +174,7 @@ const Footer = () => {
     >
       {!selectedItem && (
         <div className=" d-flex gap-2 justify-content-between">
-          <div className="">
+          <div className=" d-flex">
             <button
               type="button"
               className="btn btn-outline-light me-2 border-0"
@@ -186,6 +222,21 @@ const Footer = () => {
               <FaRegEdit />
               Edit
             </button>
+            {checkLabel.singleRow >= 1 && (
+              <div
+                className="d-flex pt-2 text-white"
+                style={{ paddingInline: "11px" }}
+              >
+                <span className="chkLabel">
+                  <IoMdMenu />
+                </span>
+
+                <span className="text-white">
+                  {checkLabel.singleRow} selected in&nbsp;
+                  {checkLabel.wholeTable} events
+                </span>
+              </div>
+            )}
           </div>
           <div>
             <button

@@ -8,7 +8,7 @@ import EventDropDown from "../../components/EventDropDown";
 
 const Table = () => {
   const { list, setlist } = useContext(userContext);
-  const { selectedItem } = useContext(invertoryContext);
+  const { selectedItem, setCheckLabel, checkLabel } = useContext(invertoryContext);
 
   // EDITING TABLE'S EVENT KEYBOARD
   const selectChange = (eventIndex, data, recordIndex) => {
@@ -38,6 +38,20 @@ const Table = () => {
 
   const checkHandle = (e, index, eventIndex) => {
     setlist((curr) => {
+      // let filterEvent = curr.filter((ele) =>
+      //   ele.eventRecords.some((itm) => itm.selected)
+      // );
+
+      // let filterRow = curr.flatMap((bg) => bg.eventRecords.filter((sml) => sml.selected));
+      // setCheckLabel((prev) => {
+      //   return{
+      //     ...prev,
+      //     singleRow: filterRow.length,
+      //     wholeTable: filterEvent.length
+      //   }
+      // })
+      // console.log(filterEvent);
+      // console.log(filterRow);
       return curr.map((ele, i) => {
         if (i === eventIndex) {
           return {

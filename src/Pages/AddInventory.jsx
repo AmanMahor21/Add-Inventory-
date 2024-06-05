@@ -10,6 +10,11 @@ const AddInventory = () => {
   const [selectedItem, setSelectedItem] = useState(false);
   const [copyRecord, setCopyRecord] = useState([]);
   const [selected, setSelcted] = useState(false);
+
+  const [checkLabel , setCheckLabel] = useState({
+    singleRow:"",
+    wholeTable:"",
+    })
   const { setSaveData } = useContext(userContext);
 
   const CustomOption = ({ isDisabled, isSelected, ...props }) => {
@@ -90,6 +95,8 @@ const AddInventory = () => {
     return e;
   };
   let inventoryValue = {
+    setCheckLabel,
+    checkLabel,
     setSelectedItem,
     selectedItem,
     copyRecord,

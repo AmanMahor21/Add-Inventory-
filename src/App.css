@@ -15,6 +15,16 @@ body {
 button svg {
   margin: 0 4px 3px 0;
 }
+.chkLabel {
+  width: 22px;
+  padding-top: 4px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+.chkLabel svg {
+  margin: 0 4px 3px 0;
+}
 .addBtnHover {
   background-color: #2c9708;
   border: none;

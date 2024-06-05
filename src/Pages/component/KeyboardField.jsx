@@ -29,7 +29,7 @@ const KeyboardField = ({
 
   return (
     <>
-      <div className="ps-4 pe-4  pt-lg-3">
+      <div className="ps-4 pe-4 pb-1 pt-lg-3">
         <Select
           className="basic-single"
           classNamePrefix="select"
@@ -129,7 +129,7 @@ const KeyboardField = ({
               </div>
               <button
                 // className="btn btn-outline-success fw-bold  "
-                className="addBtnHover"
+                className="addBtnHover pe-3"
                 onClick={addListing}
                 type="button"
               >
