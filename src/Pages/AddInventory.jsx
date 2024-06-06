@@ -11,10 +11,10 @@ const AddInventory = () => {
   const [copyRecord, setCopyRecord] = useState([]);
   const [selected, setSelcted] = useState(false);
 
-  const [checkLabel , setCheckLabel] = useState({
-    singleRow:"",
-    wholeTable:"",
-    })
+  const [checkLabel, setCheckLabel] = useState({
+    singleRow: "",
+    wholeTable: "",
+  });
   const { setSaveData } = useContext(userContext);
 
   const CustomOption = ({ isDisabled, isSelected, ...props }) => {
@@ -85,6 +85,7 @@ const AddInventory = () => {
   };
   //TURNING ON KEYBOARD FIELD
   const handleClick = (e, p) => {
+    console.log(e);
     setSaveData((prev) => ({
       ...prev,
       event: e?.label,

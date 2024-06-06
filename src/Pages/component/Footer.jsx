@@ -30,25 +30,25 @@ const Footer = () => {
   // })
   useEffect(() => {
     setlist((prev) => {
-      let filterEvent = prev.filter((ele) =>
-        ele.eventRecords.some((itm) => itm.selected)
+      let filterEvent = prev?.filter((ele) =>
+        ele?.eventRecords?.some((itm) => itm.selected)
       );
 
-      let filterRow = prev.flatMap((bg) =>
-        bg.eventRecords.filter((sml) => sml.selected)
+      let filterRow = prev?.flatMap((bg) =>
+        bg?.eventRecords?.filter((sml) => sml.selected)
       );
-      setCheckLabel((prev) => {
-        return {
-          ...prev,
-          singleRow: filterRow.length,
-          wholeTable: filterEvent.length,
-        };
-      });
-      console.log(filterEvent);
-      console.log(filterRow);
+      list &&
+        setCheckLabel((prev) => {
+          return {
+            ...prev,
+            singleRow: filterRow?.length,
+            wholeTable: filterEvent?.length,
+          };
+        });
+
       return prev;
     });
-  }, [checkLabel]);
+  }, [list]);
 
   //HANDLE DELETE BTN
   const handleDlt = () => {
@@ -89,13 +89,31 @@ const Footer = () => {
   const handle_CancelBtn = (e) => {
     setlist([...copyRecord]);
     setSelectedItem(false);
+    setlist((prev) => {
+      return prev.map((ele) => ({
+        ...ele,
+        eventRecords: ele.eventRecords.map((el) => ({
+          ...el,
+          selected: false,
+        })),
+      }));
+    });
   };
 
   //HANDLE CONFIRM BUTTON
   const handle_ConfirmBtn = (e) => {
     setSelectedItem(false);
+    setlist((prev) => {
+      return prev.map((ele) => ({
+        ...ele,
+        eventRecords: ele.eventRecords.map((el) => ({
+          ...el,
+          selected: false,
+        })),
+      }));
+    });
   };
-
+  console.log(list);
   // HANDLE CLONE TO ALL BTN
   const cloneToNew_Btn = () => {
     setlist((prev) => {

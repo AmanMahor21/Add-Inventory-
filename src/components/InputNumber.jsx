@@ -4,7 +4,7 @@ const InputNumber = ({ placeholder, name, value, selectChange }) => {
   return (
     <>
       <input
-        style={{ width: "155px", fontSize: "14px" }}
+        style={{ width: "160px", fontSize: "14px" }}
         type="number"
         name={name}
         placeholder={placeholder}

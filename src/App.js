@@ -8,13 +8,12 @@ let userContext = createContext();
 function App() {
   let getSavedEvent = JSON.parse(localStorage.getItem("savedEvents"));
   const [list, setlist] = useState([]);
-  const [unique, setUuid] = useState("");
 
   const [saveData, setSaveData] = useState({
     event: "",
-    eventDate:"",
-    time:"",
-    location:"",
+    eventDate: "",
+    time: "",
+    location: "",
     eventCheckbox: false,
     eventRecords: [
       {
@@ -47,8 +46,6 @@ function App() {
     list,
     getSavedEvent,
     setlist,
-    unique,
-    setUuid,
   };
 
   return (

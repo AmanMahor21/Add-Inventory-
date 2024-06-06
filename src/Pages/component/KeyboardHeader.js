@@ -20,6 +20,7 @@ const KeyboardHeader = () => {
             return {
               ...row,
               index: uuid().slice(0, 8),
+            
             };
           }),
         };
@@ -75,6 +76,7 @@ const KeyboardHeader = () => {
       });
     });
   };
+
   //HANDLE INITIAL INPUT OF KEYBOARD VALUE
   const handleOnChange = (data) => {
     setSaveData((current) => {
