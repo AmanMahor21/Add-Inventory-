@@ -8,8 +8,7 @@ import EventDropDown from "../../components/EventDropDown";
 
 const Table = () => {
   const { list, setlist } = useContext(userContext);
-  const { selectedItem, setCheckLabel, checkLabel } =
-    useContext(invertoryContext);
+  const { selectedItem } = useContext(invertoryContext);
 
   // EDITING TABLE'S EVENT KEYBOARD
   const selectChange = (eventIndex, data, recordIndex) => {

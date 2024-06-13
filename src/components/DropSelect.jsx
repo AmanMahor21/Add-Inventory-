@@ -6,12 +6,12 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
     control: (provided) => ({
       ...provided,
       fontSize: "14px",
-      width: "200px",
+      width: "195px",
     }),
     menu: (provided) => ({
       ...provided,
       fontSize: "13px",
-      width: "200px",
+      width: "195px",
     }),
     container: (prov) => ({
       ...prov,

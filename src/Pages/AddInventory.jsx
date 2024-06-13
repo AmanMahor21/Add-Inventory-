@@ -62,9 +62,15 @@ const AddInventory = () => {
   let customStyle = {
     control: (provided, state) => ({
       ...provided,
+      boxShadow: "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)",
+      transition: "width 0.3s ease-in-out",
+      borderRadius: "12px",
       fontSize: "14px",
-      minWidth: "400px",
-      width: state.isFocused ? "600px" : "500px",
+      minWidth: "200px",
+      maxWidth: "600px",
+      width: state.isFocused ? "600px" : "500px", 
+      borderColor: state.isFocused ? "none" : "#fff",
+      // backgroundColor: state.isFocused ? "rgb(208 205 202)" : "#fff",
     }),
     menu: (provided, state) => ({
       ...provided,
@@ -74,7 +80,7 @@ const AddInventory = () => {
 
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isFocused ? "rgb(233, 227, 221)" : "",
+      backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
       width: "584px",
     }),
 
@@ -112,7 +118,10 @@ const AddInventory = () => {
   return (
     <invertoryContext.Provider value={inventoryValue}>
       <>
-        <div className="d-flex flex-column " style={{ height: "100vh" }}>
+        <div
+          className="d-flex flex-column justify-content-between"
+          style={{ height: "100vh" }}
+        >
           <div className="" style={{ backgroundColor: "rgb(104 138 161)" }}>
             <h3
               className="ps-4 pt-4 font"

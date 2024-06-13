@@ -4,6 +4,7 @@ body {
   overflow-x: hidden;
 }
 
+
 .form-floating label {
   font-size: 12px;
   width: fit-content;
@@ -14,6 +15,8 @@ body {
 }
 button svg {
   margin: 0 4px 3px 0;
+  background-color: transparent;
+  /* background-color: rgba(230, 203, 176, 0.3); */
 }
 .chkLabel {
   width: 22px;
@@ -25,19 +28,200 @@ button svg {
 .chkLabel svg {
   margin: 0 4px 3px 0;
 }
-.addBtnHover {
-  background-color: #2c9708;
-  border: none;
-  size: 22px;
-  font-weight: 500;
-  border-radius: 4px;
-  padding: 6px 14px 6px 9px;
-  color: white;
-}
+
 .addBtnHover svg {
   width: 22px;
   height: 19px;
+  background-color: transparent;
 }
-.addBtnHover:hover {
-  background-color: #0b7a2e;
+
+.addBtnHover {
+  background-color: #eee;
+  border: none;
+  padding: 6px 14px 6px 9px;
+  font-size: 1rem;
+  width: 10em;
+  border-radius: 1rem;
+  color: lightcoral;
+  box-shadow: 0 0.4rem #dfd9d9;
+  cursor: pointer;
+}
+
+.addBtnHover:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+}
+
+.addBtnHover:hover:not(:disabled) {
+  background: lightcoral;
+  color: white;
+  text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.addBtnHover:disabled {
+  cursor: auto;
+  color: grey;
+}
+
+.button {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: transparent;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+}
+
+.button:hover::before {
+  transform: scaleY(1);
+}
+
+/* .button-content {
+  position: relative;
+  z-index: 1;
+} */
+
+.button::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
+  );
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.button:active {
+  scale: 0.9;
+}
+@media screen and (max-width: 1050px) {
+  .button {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 860px) {
+  .footterWrapper {
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+.footterWrapper {
+  row-gap: 9px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+svg {
+  background-color: transparent;
+}
+
+.saveDrafteBtn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.saveDrafteBtn {
+  --primary-color: #baaaaa;
+  --hovered-color: #e65555;
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.saveDrafteBtn p {
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.saveDrafteBtn::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.saveDrafteBtn p::before {
+  position: absolute;
+  /*   box-sizing: border-box; */
+  content: "Save Draft";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.saveDrafteBtn:hover::after {
+  width: 100%;
+}
+
+.saveDrafteBtn:hover p::before {
+  width: 100%;
+}
+
+.saveDrafteBtn:hover svg {
+  transform: translateX(4px);
+  color: var(--hovered-color);
+}
+
+.saveDrafteBtn svg {
+  color: var(--primary-color);
+  transition: 0.2s;
+  position: relative;
+  width: 15px;
+  transition-delay: 0.2s;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #348f50 0%,
+    #56b4d3 51%,
+    #348f50 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }

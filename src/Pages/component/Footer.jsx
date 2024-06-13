@@ -187,15 +187,16 @@ const Footer = () => {
 
   return (
     <footer
-      className="p-4 align-items-lg-baseline fixed-bottom"
-      style={{ backgroundColor: "rgb(104 138 161)" }}
+      className="p-4 align-items-lg-baseline"
+      // className="p-4 align-items-lg-baseline fixed-bottom"
+      style={{ backgroundColor: "rgb(19 37 51) " }}
     >
       {!selectedItem && (
-        <div className=" d-flex gap-2 justify-content-between">
-          <div className=" d-flex">
+        <div className=" d-flex gap-2 justify-content-between footterWrapper">
+          <div className=" d-flex footterWrapper">
             <button
               type="button"
-              className="btn btn-outline-light me-2 border-0"
+              className="button me-2"
               onClick={handle_SelectAll}
             >
               <LuBoxSelect />
@@ -203,30 +204,22 @@ const Footer = () => {
             </button>
             <button
               type="button"
-              className="btn btn-outline-light me-2 border-0"
+              className="button me-2"
               onClick={handle_DeselectAll}
             >
               <RxCrossCircled />
               Deselect All
             </button>
-            <button
-              type="button"
-              className="btn btn-outline-light me-2 border-0"
-              onClick={handleDlt}
-            >
+            <button type="button" className="button me-2" onClick={handleDlt}>
               <MdDelete />
               Delete
             </button>
-            <button
-              type="button"
-              className="btn btn-outline-light me-2 border-0"
-              onClick={clone_Btn}
-            >
+            <button type="button" className="button me-2" onClick={clone_Btn}>
               <IoCopy /> Clone
             </button>
             <button
               type="button"
-              className="btn btn-outline-light me-2 border-0"
+              className="button me-2"
               onClick={cloneToNew_Btn}
             >
               <MdDateRange /> Clone to new
@@ -234,7 +227,7 @@ const Footer = () => {
 
             <button
               type="button"
-              className="btn btn-outline-light me-2 border-0"
+              className="button me-2"
               onClick={handle_MumltiEdit}
             >
               <FaRegEdit />
@@ -243,7 +236,7 @@ const Footer = () => {
             {checkLabel.singleRow >= 1 && (
               <div
                 className="d-flex pt-2 text-white"
-                style={{ paddingInline: "11px" }}
+                // style={{ paddingInline: "11px" }}
               >
                 <span className="chkLabel">
                   <IoMdMenu />
@@ -259,11 +252,11 @@ const Footer = () => {
           <div>
             <button
               type="button"
-              className="btn btn-light me-4"
+              className="saveDrafteBtn"
               onClick={handle_SaveDraft}
             >
               <BsBoxArrowUpRight />
-              Save Draft
+              <p>Save Draft</p>
             </button>
           </div>
         </div>
