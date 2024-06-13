@@ -57,22 +57,24 @@ const Footer = () => {
       const updatedList = prev
         .map((ele) => ({
           ...ele,
-          eventRecords: ele.eventRecords.filter((item) => !item.selected),
+          eventRecords: ele?.eventRecords?.filter((item) => !item.selected),
         }))
-        .filter((ele) => ele.eventRecords.length > 0);
+        .filter((ele) => ele?.eventRecords?.length > 0);
 
       // UPDATE LOCAL STORAGE BY REMOVING DELETED ITEMS
-      const newSavedEvent = getSavedEvent
-        .map((ele) => ({
-          ...ele,
-          eventRecords: ele.eventRecords.filter((item, i) =>
-            updatedList.some((ule) =>
-              ule.eventRecords.some((rec) => rec.index === item.index)
-            )
-          ),
-        }))
-        .filter((ele) => ele.eventRecords.length > 0);
-      localStorage.setItem("savedEvents", JSON.stringify(newSavedEvent));
+      const newSavedEvent =
+        getSavedEvent &&
+        getSavedEvent
+          .map((ele) => ({
+            ...ele,
+            eventRecords: ele?.eventRecords?.filter((item, i) =>
+              updatedList?.some((ule) =>
+                ule?.eventRecords?.some((rec) => rec?.index === item?.index)
+              )
+            ),
+          }))
+          .filter((ele) => ele?.eventRecords?.length > 0);
+          newSavedEvent && localStorage?.setItem("savedEvents", JSON.stringify(newSavedEvent));
       return updatedList;
     });
   };
@@ -113,7 +115,7 @@ const Footer = () => {
       }));
     });
   };
-  console.log(list);
+  // console.log(list);
   // HANDLE CLONE TO ALL BTN
   const cloneToNew_Btn = () => {
     setlist((prev) => {
@@ -235,7 +237,7 @@ const Footer = () => {
             </button>
             {checkLabel.singleRow >= 1 && (
               <div
-                className="d-flex pt-2 text-white"
+                className="d-flex text-white align-items-center"
                 // style={{ paddingInline: "11px" }}
               >
                 <span className="chkLabel">

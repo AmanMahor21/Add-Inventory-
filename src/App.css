@@ -4,7 +4,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .form-floating label {
   font-size: 12px;
   width: fit-content;
@@ -201,27 +200,47 @@ svg {
   transition-delay: 0.2s;
 }
 
-.btn-grad {
-  background-image: linear-gradient(
-    to right,
-    #348f50 0%,
-    #56b4d3 51%,
-    #348f50 100%
-  );
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
+.X_ScrollBar::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
 }
 
-.btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
+.X_ScrollBar::-webkit-scrollbar-track {
+  background: #ded5d5; /* Background of the scrollbar track */
 }
+
+.X_ScrollBar::-webkit-scrollbar-thumb {
+  background: #888; /* Background of the scrollbar thumb */
+  border-radius: 90px; /* Rounded corners for the thumb */
+}
+
+.X_ScrollBar::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Background of the scrollbar thumb on hover */
+}
+/* html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 22px !important;
+  height: 12px; /* Height of the horizontal scrollbar */
+/* } */
+
+/* html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px; 
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+html,
+body {
+  scrollbar-width:auto; 
+  scrollbar-color: #888 #f1f1f1; 
+}  */

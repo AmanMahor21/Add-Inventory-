@@ -99,7 +99,7 @@ const Table = () => {
           return (
             <div key={index} style={{ height: "100%" }}>
               <div
-                className="accordion m-4"
+                className="accordion m-4 "
                 id="accordionPanelsStayOpenExample"
               >
                 <div className="accordion-item">
@@ -160,7 +160,7 @@ const Table = () => {
                   </h2>
                   <div
                     id={`panelsStayOpen-${index}`}
-                    className="accordion-collapse collapse show overflow-auto"
+                    className="accordion-collapse collapse show overflow-auto X_ScrollBar"
                   >
                     {item?.eventRecords?.map((records, recordIndex) => {
                       return (
