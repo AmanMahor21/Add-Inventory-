@@ -1,0 +1,27 @@
+.eventDetails {
+  /* padding-left: 3px; */
+  /* padding-right: 33px; */
+  /* width: 600px !important; */
+  /* width: 600px; */
+}
+
+@media screen and (max-width: 660px) {
+  /* width: 70vw; */
+  .eventDetails tr {
+    /* width: 100% !important; */
+    /* width: auto !important; */
+    /* padding-inline: clamp(2px, 1rem, 20px) !important; */
+    /* padding-inline: min(22px) !important; */
+    /* width: auto !important; */
+    /* display: flex; */
+    /* word-wrap: break-word; */
+    /* flex-shrink: 2; */
+    /* max-width: 600px;
+    min-width: 200px; */
+    /* font-size: clamp(5px, 0.5rem, 20px); */
+    /* background-color: aqua; */
+  }
+}
+.detailCell {
+  /* flex: 1 0 auto; */
+}

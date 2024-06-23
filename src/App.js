@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
-import "./App.css";
+import "./styles/App.css";
+import "./styles/EventDetails.css";
 import AddInventory from "./Pages/AddInventory";
 import { v4 as uuid } from "uuid";
 

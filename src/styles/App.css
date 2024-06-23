@@ -68,7 +68,9 @@ button svg {
   flex: 0 0 auto;
   overflow: hidden;
   height: 3rem;
-  padding: 0 2rem;
+  font-size: clamp(13px, 1vw, 16px);
+  padding-inline: clamp(15px, 1.5vw, 32px);
+  flex: 1 0 auto;
   border-radius: 1.5rem;
   background: transparent;
   background-size: 400%;
@@ -110,21 +112,34 @@ button svg {
 .button:active {
   scale: 0.9;
 }
-@media screen and (max-width: 1050px) {
-  .button {
-    font-size: 13px;
-  }
-}
+
 @media screen and (max-width: 860px) {
   .footterWrapper {
     flex-wrap: wrap;
     display: flex;
   }
+
+  .accordian_Head {
+    font-size: 13px;
+    padding: clamp(3px, 2vw, 20px) !important;
+  }
+  .eventSelect {
+    max-width: 350px;
+  }
+}
+.inputField {
+  width: clamp(160px, 15vw, 195px);
+  /* min-height: 38px !important; */
 }
 .footterWrapper {
   row-gap: 9px;
   flex-wrap: wrap;
   display: flex;
+}
+
+.accordian_Head {
+  flex: 0 6 auto;
+  padding: clamp(10px, 2vw, 20px);
 }
 
 svg {
@@ -133,6 +148,7 @@ svg {
 
 .saveDrafteBtn {
   padding: 0;
+  padding-left: 15px;
   margin: 0;
   border: none;
   background: none;
@@ -200,6 +216,24 @@ svg {
   transition-delay: 0.2s;
 }
 
+.eventDetails tr :nth-child(2) {
+  border-right: none;
+}
+.eventDetails td,
+.detailCell {
+  padding-inline: 8px;
+  border: 1px solid #dfe2e4;
+  font-size: clamp(12px, 1vw, 14px) !important;
+}
+.input-group {
+  flex-wrap: initial !important;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .X_ScrollBar::-webkit-scrollbar {
   width: 12px; /* Width of the vertical scrollbar */
   height: 12px; /* Height of the horizontal scrollbar */
@@ -217,30 +251,3 @@ svg {
 .X_ScrollBar::-webkit-scrollbar-thumb:hover {
   background: #555; /* Background of the scrollbar thumb on hover */
 }
-/* html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 22px !important;
-  height: 12px; /* Height of the horizontal scrollbar */
-/* } */
-
-/* html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 10px; 
-}
-
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-
-html,
-body {
-  scrollbar-width:auto; 
-  scrollbar-color: #888 #f1f1f1; 
-}  */

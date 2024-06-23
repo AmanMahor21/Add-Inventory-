@@ -74,7 +74,8 @@ const Footer = () => {
             ),
           }))
           .filter((ele) => ele?.eventRecords?.length > 0);
-          newSavedEvent && localStorage?.setItem("savedEvents", JSON.stringify(newSavedEvent));
+      newSavedEvent &&
+        localStorage?.setItem("savedEvents", JSON.stringify(newSavedEvent));
       return updatedList;
     });
   };

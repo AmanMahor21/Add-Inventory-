@@ -17,13 +17,14 @@ const EventRecords = ({
 }) => {
   return (
     <div
-      className={`accordion-body d-flex gap-2 ${
+      className={`accordion-body d-flex gap-2 flex-grow-1${
         selectedItem && disabled !== -1 && disabled !== recordIndex
           ? "pe-none opacity-75"
           : "bg-grey"
       }`}
     >
       <input
+        className=""
         type="checkbox"
         style={{ opacity: "100" }}
         name="selected"

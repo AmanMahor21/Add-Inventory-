@@ -43,10 +43,10 @@ const KeyboardField = ({
           }}
         />
       </div>
-      <div className="ps-4 pe-2 pt-2 ">
+      <div className="ps-4 pe-3 pt-2 ">
         {saveData?.event && (
           <div className="row">
-            <div className="flex-wrap d-flex col gap-2">
+            <div className="flex-wrap d-flex col gap-2 mb-3">
               <DropSelect
                 options={TICKET_TYPE}
                 placeholder={"Ticket Type"}
@@ -91,8 +91,6 @@ const KeyboardField = ({
                 selectChange={handleOnChange}
                 name="FirstSeat"
               />
-            </div>
-            <div className="flex-wrap d-flex mb-3  mt-3 justify-content-lg-start gap-2 w-100">
               <SymbolInput
                 placeholder={"Face value"}
                 selectChange={handleOnChange}
@@ -112,6 +110,8 @@ const KeyboardField = ({
                 selectChange={handleOnChange}
               />
             </div>
+            {/* <div className="flex-wrap d-flex mb-3  mt-3 justify-content-lg-start gap-2 w-100">
+            </div> */}
             <div className="w-100 d-flex justify-content-end pe-5 pt-2 head fs-6 mb-4 gap-2 align-items-center">
               <div className="form-check form-switch ">
                 <label htmlFor="addToAll" className="ml-4 form-check-label">

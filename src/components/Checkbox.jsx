@@ -3,7 +3,9 @@ import React from "react";
 const Checkbox = ({ selectChange, name, placeholder, value }) => {
   return (
     <>
-      <div className="form-check border ps-2  pe-2 bg-white align-content-center d-flex border border-secondary-subtle rounded-2 border-border-opacity-75">
+      <div className="form-check border ps-2  pe-2 bg-white align-content-center d-flex border border-secondary-subtle rounded-2 border-border-opacity-75 inputField"
+      // style={{width:"195px"}}
+      >
         <input
           className=" ps-2 justify-content-center"
           type="checkbox"

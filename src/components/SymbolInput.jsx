@@ -2,7 +2,10 @@ import React from "react";
 
 const SymbolInput = ({ selectChange, placeholder, name, value }) => {
   return (
-    <div className="col-auto">
+    <div
+      className=" inputField"
+      // style={{width: "195px"}}
+    >
       <label class="visually-hidden" for="autoSizingInputGroup">
         {placeholder}
       </label>
@@ -16,7 +19,7 @@ const SymbolInput = ({ selectChange, placeholder, name, value }) => {
           className="ps-2 form-control"
           id="autoSizingInputGroup"
           name={name}
-          style={{ width: "145px", fontSize: "14px" }}
+          style={{ fontSize: "14px", width: "auto" }}
           value={value}
           placeholder={placeholder}
           aria-label="Username"

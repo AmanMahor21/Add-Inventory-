@@ -4,6 +4,7 @@ import Table from "./component/Table";
 import Footer from "./component/Footer";
 import Select, { components } from "react-select";
 import { userContext } from "../App";
+import { SingleValue } from "react-select/animated";
 
 let invertoryContext = createContext();
 const AddInventory = () => {
@@ -20,37 +21,33 @@ const AddInventory = () => {
   const CustomOption = ({ isDisabled, isSelected, ...props }) => {
     return (
       <components.Option {...props}>
-        <div
-          className="pt-1 pb-1"
-          style={{ border: "1px solid #DFE2E4", borderBottom: "none" }}
-        >
+        <div className="pt-1 pb-1 detailCell" style={{ borderBottom: "none" }}>
           {props.data.label}
         </div>
-        <table>
-          <tr className="d-flex">
+        <table className="eventDetails w-100">
+          <tr className=" w-100 ">
             <td
-              className="pt-1 pb-1"
-              style={{ border: "1px solid #DFE2E4", width: "130px" }}
+              className="pt-1 pb-1 detailCell"
+              // style={{ border: "1px solid #DFE2E4", width: "" }}
             >
               {props.data.eventDate}
             </td>
             <td
-              className="pt-1 pb-1"
-              style={{
-                border: "1px solid #DFE2E4",
-                width: "70px",
-                borderLeft: "none",
-              }}
+              className="pt-1 pb-1 detailCell"
+              // style={{
+              //   border: "1px solid #DFE2E4",
+              //   width: "",
+              //   borderLeft: "none",
+              // }}
             >
               {props.data.time}
             </td>
             <td
-              className="pt-1 pb-1"
-              style={{
-                border: "1px solid #DFE2E4",
-                width: "360px",
-                borderLeft: "none",
-              }}
+              className="pt-1 pb-1 detailCell"
+              // style={{
+              //   border: "1px solid #DFE2E4",
+              //   width: "",
+              // }}
             >
               {props.data.location}
             </td>
@@ -67,21 +64,30 @@ const AddInventory = () => {
       borderRadius: "12px",
       fontSize: "14px",
       minWidth: "200px",
-      maxWidth: "600px",
-      width: state.isFocused ? "600px" : "500px", 
+      maxWidth: state.isFocused ? "600px" : "500px",
       borderColor: state.isFocused ? "none" : "#fff",
+      className: "eventSelect",
       // backgroundColor: state.isFocused ? "rgb(208 205 202)" : "#fff",
     }),
     menu: (provided, state) => ({
       ...provided,
       fontSize: "13px",
       width: "603px",
+      "@media only screen and (max-width: 600px)": {
+        ...provided["@media only screen and (max-width: 600px)"],
+        width: "100%",
+      },
     }),
 
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
       width: "584px",
+      fontSize: "clamp(12px, 1vw, 16px)",
+      "@media only screen and (max-width: 600px)": {
+        ...provided["@media only screen and (max-width: 600px)"],
+        width: "100%",
+      },
     }),
 
     container: (prov) => ({

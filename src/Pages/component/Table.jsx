@@ -87,8 +87,8 @@ const Table = () => {
   };
   return (
     <div
-      className=" d-flex flex-column align-content-lg-start"
-      style={{ paddingBottom: "66px" }}
+      className=" d-flex flex-column align-content-lg-start flex-grow-1"
+      // style={{ paddingBottom: "66px" }}
     >
       {list &&
         list?.map((item, index) => {
@@ -103,7 +103,7 @@ const Table = () => {
                 id="accordionPanelsStayOpenExample"
               >
                 <div className="accordion-item">
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header d-flex">
                     <button
                       className="accordion-button pt-0 pb-0 accordian_header"
                       type="button"
@@ -119,15 +119,15 @@ const Table = () => {
                           <input
                             type="checkbox"
                             name="eventCheckbox"
-                            className="me-2 "
+                            className="me-2   "
                             checked={item.eventCheckbox}
                           />
                           <span className="d-flex justify-content-between">
                             <span
-                              className="pb-3 pt-3 ps-3 "
+                              className=" accordian_Head"
                               style={{
                                 borderRight: "1px solid rgb(183 198 203)  ",
-                                width: "300px",
+                                // width: "300px",
                               }}
                             >
                               {item?.event}
@@ -135,22 +135,22 @@ const Table = () => {
                             <span
                               style={{
                                 borderRight: "1px solid rgb(183 198 203)  ",
-                                width: "250px",
+                                // width: "250px",
                               }}
-                              className="pb-3 pt-3 ps-3 "
+                              className=" accordian_Head"
                             >
                               {item?.eventDate}
                             </span>
                             <span
                               style={{
                                 borderRight: "1px solid rgb(183 198 203)  ",
-                                width: "120px",
+                                // width: "120px",
                               }}
-                              className="pb-3 pt-3 ps-3 "
+                              className=" accordian_Head"
                             >
                               {item?.time}
                             </span>
-                            <span className="pb-3 pt-3 ps-3 ">
+                            <span className=" accordian_Head">
                               {item?.location}
                             </span>
                           </span>
@@ -160,7 +160,7 @@ const Table = () => {
                   </h2>
                   <div
                     id={`panelsStayOpen-${index}`}
-                    className="accordion-collapse collapse show overflow-auto X_ScrollBar"
+                    className="accordion-collapse collapse show overflow-auto X_ScrollBar pe-1"
                   >
                     {item?.eventRecords?.map((records, recordIndex) => {
                       return (
