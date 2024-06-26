@@ -122,7 +122,7 @@ const Table = () => {
                             className="me-2   "
                             checked={item.eventCheckbox}
                           />
-                          <span className="d-flex justify-content-between">
+                          <span className="accodian_Wrapper">
                             <span
                               className=" accordian_Head"
                               style={{
@@ -150,7 +150,7 @@ const Table = () => {
                             >
                               {item?.time}
                             </span>
-                            <span className=" accordian_Head">
+                            <span className=" accordian_Head location_label">
                               {item?.location}
                             </span>
                           </span>

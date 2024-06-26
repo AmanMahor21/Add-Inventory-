@@ -1,23 +1,56 @@
 import React from "react";
 import Select from "react-select";
+import { SingleValue } from "react-select/animated";
 
 const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
   let customStyle = {
-    control: (provided) => ({
+    control: (provided, base) => ({
       ...provided,
       fontSize: "14px",
-      // width: "195px",
-      width: " clamp(160px, 15vw, 195px)",
+      maxWidth: "210px",
+      borderRadius: "6px",
+      flex: "1  1 130px",
+      minWidth: "140px",
+      minHeight: "30px", // Reduce the minimum height
+      height: "30px", // Set a fixed height
+      alignItems: "flex-start",
     }),
-    menu: (provided) => ({
+    option: (provided, state) => ({
       ...provided,
-      fontSize: "13px",
-      // width: "195px",
-      width: " clamp(160px, 15vw, 195px)",
+      backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
+      fontSize: "clamp(12px, 1vw, 14px)",
+      paddingBlock: "2px",
+      color: state.isFocused ? "#D8713A" : "",
     }),
+    valueContainer: (provided) => ({
+      ...provided,
+      height: "30px", // Set the same height for value container
+      paddingTop: "0px", // Adjust padding if needed
+      // flex: "1 0 195px",
+    }),
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      display: "none", // Optionally remove the separator
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      fontSize: "clamp(11px , 0.92vw , 14px)",
+      whiteSpace: "nowrap ", // Decrease font size of the placeholder
+    }),
+
     container: (prov) => ({
       ...prov,
+      minHeight: "30px", // Reduce the minimum height
+      height: "30px", // Set a fixed height
+      flex: "1 1 130px",
+      maxWidth: "210px",
+
+      display: "flex",
       minMenuHeight: "11px",
+    }),
+    indicatorsContainer: (pro, style) => ({
+      ...pro,
+      height: "30px",
     }),
 
     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
@@ -25,6 +58,10 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
 
   return (
     <>
+    <div>
+
+      <label className="custom-label">Select an option</label>
+
       <Select
         className=""
         styles={customStyle}
@@ -42,8 +79,9 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
           };
           selectChange(event);
         }}
-      />
-    </>
+        
+        </div>
+        </>
   );
 };
 

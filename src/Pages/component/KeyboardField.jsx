@@ -46,7 +46,7 @@ const KeyboardField = ({
       <div className="ps-4 pe-3 pt-2 ">
         {saveData?.event && (
           <div className="row">
-            <div className="flex-wrap d-flex col gap-2 mb-3">
+            <div className="d-flex col gap-2 mb-3 fieldWrapper">
               <DropSelect
                 options={TICKET_TYPE}
                 placeholder={"Ticket Type"}
@@ -60,6 +60,7 @@ const KeyboardField = ({
                 selectChange={handleOnChange}
               />
               <DropSelect
+              
                 options={SPLIT_TYPE}
                 placeholder={"None"}
                 selectChange={handleOnChange}

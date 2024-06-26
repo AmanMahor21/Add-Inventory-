@@ -238,7 +238,7 @@ const Footer = () => {
             </button>
             {checkLabel.singleRow >= 1 && (
               <div
-                className="d-flex text-white align-items-center"
+                className="d-flex text-white align-items-center rowCount_wrap"
                 // style={{ paddingInline: "11px" }}
               >
                 <span className="chkLabel">

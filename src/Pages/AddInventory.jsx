@@ -26,31 +26,9 @@ const AddInventory = () => {
         </div>
         <table className="eventDetails w-100">
           <tr className=" w-100 ">
-            <td
-              className="pt-1 pb-1 detailCell"
-              // style={{ border: "1px solid #DFE2E4", width: "" }}
-            >
-              {props.data.eventDate}
-            </td>
-            <td
-              className="pt-1 pb-1 detailCell"
-              // style={{
-              //   border: "1px solid #DFE2E4",
-              //   width: "",
-              //   borderLeft: "none",
-              // }}
-            >
-              {props.data.time}
-            </td>
-            <td
-              className="pt-1 pb-1 detailCell"
-              // style={{
-              //   border: "1px solid #DFE2E4",
-              //   width: "",
-              // }}
-            >
-              {props.data.location}
-            </td>
+            <td className="pt-1 pb-1 detailCell">{props.data.eventDate}</td>
+            <td className="pt-1 pb-1 detailCell">{props.data.time}</td>
+            <td className="pt-1 pb-1 detailCell">{props.data.location}</td>
           </tr>
         </table>
       </components.Option>
@@ -81,9 +59,11 @@ const AddInventory = () => {
 
     option: (provided, state) => ({
       ...provided,
+      // backgroundColor: state.isFocused ? "rgba(240, 165, 74, 0.1)" : "",
       backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
-      width: "584px",
+      color: state.isFocused ? "#D8713A" : "",
       fontSize: "clamp(12px, 1vw, 16px)",
+      width: "584px",
       "@media only screen and (max-width: 600px)": {
         ...provided["@media only screen and (max-width: 600px)"],
         width: "100%",
@@ -123,7 +103,7 @@ const AddInventory = () => {
 
   return (
     <invertoryContext.Provider value={inventoryValue}>
-      <>
+      <div className="invntorWrapper">
         <div
           className="d-flex flex-column justify-content-between"
           style={{ height: "100vh" }}
@@ -142,7 +122,7 @@ const AddInventory = () => {
 
           <Footer />
         </div>
-      </>
+      </div>
     </invertoryContext.Provider>
   );
 };

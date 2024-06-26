@@ -2,10 +2,7 @@ import React from "react";
 
 const SymbolInput = ({ selectChange, placeholder, name, value }) => {
   return (
-    <div
-      className=" inputField"
-      // style={{width: "195px"}}
-    >
+    <div className=" inputField" style={{ minWidth: "155px" }}>
       <label class="visually-hidden" for="autoSizingInputGroup">
         {placeholder}
       </label>

@@ -15,10 +15,11 @@ const InputDate = ({ selectChange, ...rest }) => {
     );
   };
   return (
+    // <div className="custom_Date ">
     <DatePicker
       className=" border border-secondary-subtle rounded-2 border-border-opacity-75 inputField ps-5"
       showIcon
-      style={{ top: "3px", zIndex: 999999 }}
+      style={{ zIndex: 999999 }}
       calendarContainer={MyContainer}
       name={rest.name}
       selected={rest.value || startDate}
@@ -33,6 +34,7 @@ const InputDate = ({ selectChange, ...rest }) => {
         selectChange(event);
       }}
     />
+    // </div>
   );
 };
 

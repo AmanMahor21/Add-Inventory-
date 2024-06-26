@@ -41,7 +41,9 @@ button svg {
   font-size: 1rem;
   width: 10em;
   border-radius: 1rem;
-  color: lightcoral;
+  /* color: lightcoral; */
+  color: #f0a54a;
+
   box-shadow: 0 0.4rem #dfd9d9;
   cursor: pointer;
 }
@@ -53,7 +55,13 @@ button svg {
 }
 
 .addBtnHover:hover:not(:disabled) {
-  background: lightcoral;
+  /* background: lightcoral; */
+  /* background-color: #f0a54a; */
+  background: linear-gradient(
+    82.3deg,
+    rgb(240, 165, 74) 10.8%,
+    rgb(253, 160, 107) 94.3%
+  );
   color: white;
   text-shadow: 0 0.1rem #bcb4b4;
 }
@@ -67,28 +75,28 @@ button svg {
   position: relative;
   flex: 0 0 auto;
   overflow: hidden;
-  height: 3rem;
-  font-size: clamp(13px, 1vw, 16px);
-  padding-inline: clamp(15px, 1.5vw, 32px);
-  flex: 1 0 auto;
-  border-radius: 1.5rem;
+  height: 33px;
+  font-size: clamp(12px, 1vw, 16px);
+  /* padding-inline: clamp(15px, 1.5vw, 32px); */
+  padding-inline: 4px;
+  width: clamp(100px, 11.6vw, 175px);
+  max-width: 175px;
+  /* max-width: 17; */
+  /* flex: 1 1 150px; */
+  white-space: nowrap;
+  border-radius: 9px;
   background: transparent;
   background-size: 400%;
   color: #fff;
   border: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  /* transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1); */
   z-index: 1;
 }
 
 .button:hover::before {
   transform: scaleY(1);
 }
-
-/* .button-content {
-  position: relative;
-  z-index: 1;
-} */
 
 .button::before {
   z-index: -1;
@@ -103,14 +111,25 @@ button svg {
   border-radius: inherit;
   background: linear-gradient(
     82.3deg,
+    rgb(240, 165, 74) 10.8%,
+    rgb(253, 160, 107) 94.3%
+  );
+  /* background: linear-gradient(
+    82.3deg,
     rgba(150, 93, 233, 1) 10.8%,
     rgba(99, 88, 238, 1) 94.3%
-  );
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  ); */
+  /* transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); */
 }
 
 .button:active {
   scale: 0.9;
+}
+.accodian_Wrapper {
+  display: flex;
+}
+.rowCount_wrap {
+  font-size: clamp(12px, 1vw, 16px);
 }
 
 @media screen and (max-width: 860px) {
@@ -118,30 +137,116 @@ button svg {
     flex-wrap: wrap;
     display: flex;
   }
+  .location_label {
+    grid-column: 1 / span 3;
+    /* padding: 1px !important; */
+    white-space: nowrap;
+    align-self: flex-end;
+    display: none;
+  }
 
   .accordian_Head {
-    font-size: 13px;
+    /* font-size: 13px; */
     padding: clamp(3px, 2vw, 20px) !important;
+    /* padding-bottom: 0px !important; */
   }
   .eventSelect {
     max-width: 350px;
   }
+  .accodian_Wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    /* max-height: 80px; */
+    /* height: auto; */
+  }
+  .accodian_Wrapper span:nth-of-type(3) {
+    border-right: none !important;
+  }
 }
-.inputField {
-  width: clamp(160px, 15vw, 195px);
-  /* min-height: 38px !important; */
+@media screen and (max-width: 1100px) {
+  .fieldWrapper {
+    /* width: 25% !important; */
+    /* zoom: "0.6"; */
+  }
+  .row {
+    /* min-width: 1100px !important; */
+    /* overflow-x: visible; */
+  }
+  .fieldWrapper {
+    /* flex: 1 1 auto; */
+    /* flex-wrap: nowrap; */
+  }
+  .inputField {
+    /* width: 25%; */
+  }
 }
+.fieldWrapper {
+  flex-wrap: wrap;
+}
+
+.custom-label {
+  position: relative;
+}
+.custom-label::after {
+  position: absolute;
+  top: 10px; /* Adjust to position the label at the border */
+  left: 10px; /* Adjust to align the label with the input */
+  background: white; /* Background to cover the input border */
+  padding: 0 5px; /* Padding to ensure label text is readable */
+  font-size: 12px !important;
+  color: gray; /* Adjust label color as needed */
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the spinner in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.react-datepicker__view-calendar-icon input,
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100%;
+  height: 30px;
+}
+
+.inputField,
+.input-group,
+.react-datepicker-wrapper {
+  flex: 1 1 130px !important;
+  height: 30px !important;
+  max-width: 210px;
+  min-width: 140px;
+}
+.inputField,
+.input-group input::placeholder {
+  font-size: clamp(11px, 0.92vw, 14px) !important;
+}
+
 .footterWrapper {
   row-gap: 9px;
   flex-wrap: wrap;
   display: flex;
+  justify-content: end;
 }
 
 .accordian_Head {
   flex: 0 6 auto;
-  padding: clamp(10px, 2vw, 20px);
+  /* white-space: nowrap; */
+  padding: clamp(10px, 1.3vw, 20px);
+  font-size: clamp(13px, 0.9vw, 15px);
+  /* font-size: 1em; */
 }
-
+.react-datepicker-wrapper svg {
+  /* margin-top: 2px; */
+  font-size: 12px;
+  height: 100%;
+  padding: 0 0 0 0.8em !important;
+}
 svg {
   background-color: transparent;
 }
@@ -157,7 +262,9 @@ svg {
 
 .saveDrafteBtn {
   --primary-color: #baaaaa;
-  --hovered-color: #e65555;
+  /* --hovered-color: rgb(240, 165, 74) 10.8%; */
+  --hovered-color: #f0a54a;
+  /* --hovered-color: #e65555; */
   position: relative;
   display: flex;
   font-weight: 600;
@@ -181,7 +288,7 @@ svg {
   bottom: -7px;
   background: var(--hovered-color);
   height: 2px;
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
 }
 
 .saveDrafteBtn p::before {
@@ -227,6 +334,7 @@ svg {
 }
 .input-group {
   flex-wrap: initial !important;
+  height: 30px;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
