@@ -73,6 +73,7 @@ const AddInventory = () => {
     container: (prov) => ({
       ...prov,
       minMenuHeight: "11px",
+      width: "100%",
     }),
   };
   //TURNING ON KEYBOARD FIELD
@@ -108,7 +109,7 @@ const AddInventory = () => {
           className="d-flex flex-column justify-content-between"
           style={{ height: "100vh" }}
         >
-          <div className="" style={{ backgroundColor: "rgb(104 138 161)" }}>
+          <div className="eventBackground">
             <h3
               className="ps-4 pt-4 font"
               style={{ fontFamily: "Ubuntu Sans Mono", fontWeight: "500" }}

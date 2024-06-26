@@ -11,6 +11,7 @@ import { MdDateRange } from "react-icons/md";
 import { v4 as uuid } from "uuid";
 import { IoCopy } from "react-icons/io5";
 import { IoMdMenu } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const Footer = () => {
   const { setlist, list, getSavedEvent } = useContext(userContext);
@@ -123,12 +124,21 @@ const Footer = () => {
       let checked_keyboard = prev.flatMap((ele) =>
         ele.eventRecords.filter((same) => same.selected)
       );
+      console.log(checked_keyboard);
+
       let p = {
         eventRecords: checked_keyboard.map((ts) => {
           return { ...ts, index: uuid().slice(0, 8), selected: false };
         }),
       };
-      return [p, ...prev];
+      if (!checked_keyboard || checked_keyboard.length == 0) {
+        console.log("i m there");
+        Swal.fire({
+          icon: "error",
+          title: "Select At Least One Row",
+        });
+        return prev;
+      } else return [p, ...prev];
     });
   };
 

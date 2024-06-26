@@ -16,7 +16,7 @@ const EventDropDown = ({ cloneDropDown }) => {
         options={EVENT_LIST}
         onChange={cloneDropDown}
         noOptionsMessage={() => {
-          return <div className="text-body-secondary">Please wait</div>;
+          return <div className="text-body-secondary">Not Found</div>;
         }}
       />
     </>

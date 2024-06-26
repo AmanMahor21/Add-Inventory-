@@ -39,7 +39,7 @@ const KeyboardField = ({
           options={EVENT_LIST}
           onChange={handleClick}
           noOptionsMessage={() => {
-            return <div className="text-body-secondary">Please wait</div>;
+            return <div className="text-body-secondary">Not Found</div>;
           }}
         />
       </div>
@@ -60,7 +60,6 @@ const KeyboardField = ({
                 selectChange={handleOnChange}
               />
               <DropSelect
-              
                 options={SPLIT_TYPE}
                 placeholder={"None"}
                 selectChange={handleOnChange}
@@ -113,7 +112,7 @@ const KeyboardField = ({
             </div>
             {/* <div className="flex-wrap d-flex mb-3  mt-3 justify-content-lg-start gap-2 w-100">
             </div> */}
-            <div className="w-100 d-flex justify-content-end pe-5 pt-2 head fs-6 mb-4 gap-2 align-items-center">
+            <div className=" key_btnWrap">
               <div className="form-check form-switch ">
                 <label htmlFor="addToAll" className="ml-4 form-check-label">
                   Add to all events

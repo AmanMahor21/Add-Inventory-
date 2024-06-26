@@ -58,10 +58,7 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
 
   return (
     <>
-    <div>
-
-      <label className="custom-label">Select an option</label>
-
+      {/* <label className="custom-label">Select an option</label> */}
       <Select
         className=""
         styles={customStyle}
@@ -79,9 +76,8 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
           };
           selectChange(event);
         }}
-        
-        </div>
-        </>
+      />
+    </>
   );
 };
 
