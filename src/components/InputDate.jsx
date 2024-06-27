@@ -7,7 +7,7 @@ const InputDate = ({ selectChange, ...rest }) => {
   const [startDate, setStartDate] = useState(new Date());
   const MyContainer = ({ className, children }) => {
     return (
-      <div style={{ paddingLeft: "80px", zIndex: "9999" }}>
+      <div className="dateWrap">
         <CalendarContainer className={className}>
           <div style={{ position: "relative" }}>{children}</div>
         </CalendarContainer>

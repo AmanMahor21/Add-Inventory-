@@ -11,6 +11,7 @@ body {
 }
 .accordian_header {
   background-color: rgb(233, 227, 221);
+  z-index: 0 !important;
 }
 button svg {
   margin: 0 4px 3px 0;
@@ -153,6 +154,13 @@ button svg {
     flex-wrap: wrap;
     display: flex;
   }
+  .dateWrap {
+    padding-left: 5vmax;
+    padding-right: 5vmax;
+    width: 111px;
+    height: 111px;
+    z-index: 9999;
+  }
   .location_label {
     grid-column: 1 / span 3;
     /* padding: 1px !important; */
@@ -169,10 +177,7 @@ button svg {
   .eventSelect {
     max-width: 350px;
   }
-  .key_btnWrap {
-    padding-right: 0px !important;
-    justify-content: space-between !important;
-  }
+
   .accodian_Wrapper {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
@@ -251,7 +256,7 @@ input[type="number"] {
   row-gap: 9px;
   flex-wrap: wrap;
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
 }
 
 .accordian_Head {
@@ -350,7 +355,8 @@ svg {
 .detailCell {
   padding-inline: 8px;
   border: 1px solid #dfe2e4;
-  font-size: clamp(12px, 1vw, 14px) !important;
+  font-size: clamp(12px, 0.86vw, 13px) !important;
+  z-index: 9999;
 }
 .input-group {
   flex-wrap: initial !important;

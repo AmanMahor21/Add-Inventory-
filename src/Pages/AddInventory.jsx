@@ -62,7 +62,8 @@ const AddInventory = () => {
       // backgroundColor: state.isFocused ? "rgba(240, 165, 74, 0.1)" : "",
       backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
       color: state.isFocused ? "#D8713A" : "",
-      fontSize: "clamp(12px, 1vw, 16px)",
+      fontSize: "clamp(12px, 1vw, 14px)",
+      // fontSize: "4px",
       width: "584px",
       "@media only screen and (max-width: 600px)": {
         ...provided["@media only screen and (max-width: 600px)"],
