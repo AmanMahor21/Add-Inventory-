@@ -15,12 +15,18 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
       height: "30px", // Set a fixed height
       alignItems: "flex-start",
     }),
+
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "rgba(230, 203, 176, 0.3)" : "",
       fontSize: "clamp(12px, 1vw, 14px)",
       paddingBlock: "2px",
       color: state.isFocused ? "#D8713A" : "",
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      everFlow: "visible",
+      zIndex: 99999,
     }),
     valueContainer: (provided) => ({
       ...provided,
@@ -53,7 +59,7 @@ const DropSelect = ({ selectChange, options, placeholder, name, ...rest }) => {
       height: "30px",
     }),
 
-    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+    menuPortal: (base) => ({ ...base, zIndex: 999999 }),
   };
 
   return (
