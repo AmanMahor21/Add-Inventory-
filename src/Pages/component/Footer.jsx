@@ -200,7 +200,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="p-4 align-items-lg-baseline"
+      className="p-4 align-items-lg-baseline fixed-bottom w-100"
       // className="p-4 align-items-lg-baseline fixed-bottom"
       style={{ backgroundColor: "rgb(19 37 51) " }}
     >
