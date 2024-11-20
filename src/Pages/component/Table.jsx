@@ -37,6 +37,8 @@ const Table = () => {
   };
 
   const checkHandle = (e, index, eventIndex) => {
+    e.stopPropagation();
+    console.log("hancle check");
     setlist((curr) => {
       return curr.map((ele, i) => {
         if (i === eventIndex) {
@@ -58,6 +60,7 @@ const Table = () => {
 
   // HANDLE CLONE SELECT EVENT
   const cloneDropDown = (e) => {
+    console.log("Asd");
     setlist((prev) => {
       if (!prev.find((obj) => obj.event === e.label)) {
         const clone = {
@@ -85,11 +88,27 @@ const Table = () => {
       }
     });
   };
+  const eventHeader_Checkbox = (e, index) => {
+    // e.stopPropagation();
+    e.preventDefault(); // Prevent Bootstrap's default behavior
+
+    // console.log(index);
+    // console.log(e, index);
+    setlist((prev) => {
+      return prev.map((ele, ind) => {
+        if (ind == index) {
+          return {
+            ...ele,
+            eventCheckbox: e.target.checked,
+          };
+        }
+        return ele;
+      });
+    });
+  };
+  // console.log(list);
   return (
-    <div
-      className=" d-flex flex-column align-content-lg-start flex-grow-1"
-      // style={{ paddingBottom: "66px" }}
-    >
+    <div className=" d-flex flex-column align-content-lg-start flex-grow-1">
       {list &&
         list?.map((item, index) => {
           let firstIndexOfSelected = selectedItem
@@ -103,25 +122,45 @@ const Table = () => {
                 id="accordionPanelsStayOpenExample"
               >
                 <div className="accordion-item">
-                  <h2 className="accordion-header d-flex">
+                  <h2
+                    className="accordion-header d-flex"
+                    style={{ paddingLeft: "20px" }}
+                  >
+                    <input
+                      style={{
+                        // position: "relative",
+                        // left: "10px",
+                        zIndex: "22",
+                      }}
+                      type="checkbox"
+                      name="eventCheckbox"
+                      className="me-2   "
+                      checked={item.eventCheckbox}
+                      onClick={(e) => e.stopPropagation()} // Prevent propagation to the accordion
+                      onChange={(e) => eventHeader_Checkbox(e, index)}
+                    />
                     <button
-                      className="accordion-button pt-0 pb-0 accordian_header"
+                      className="accordion-button pt-0 pb-0 accordian_header "
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target={`#panelsStayOpen-${index}`}
                       aria-expanded="true"
                       aria-controls={`panelsStayOpen-${index}`}
+                      style={{ position: " relative", left: "" }}
                     >
                       {!item.event ? (
                         <EventDropDown cloneDropDown={cloneDropDown} />
                       ) : (
                         <>
-                          <input
+                          {/* <input
                             type="checkbox"
                             name="eventCheckbox"
                             className="me-2   "
                             checked={item.eventCheckbox}
-                          />
+                            onClick={(e) => e.stopPropagation()} // Prevent propagation to the accordion
+                            onChange={(e) => eventHeader_Checkbox(e, index)}
+                          /> */}
+
                           <span className="accodian_Wrapper">
                             <span
                               className=" accordian_Head"

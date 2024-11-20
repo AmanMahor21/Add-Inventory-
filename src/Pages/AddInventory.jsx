@@ -50,6 +50,7 @@ const AddInventory = () => {
     menu: (provided, state) => ({
       ...provided,
       fontSize: "13px",
+      zIndex: "44",
       width: "603px",
       "@media only screen and (max-width: 600px)": {
         ...provided["@media only screen and (max-width: 600px)"],
