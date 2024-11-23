@@ -121,7 +121,7 @@ const Table = () => {
                 className="accordion m-4 "
                 id="accordionPanelsStayOpenExample"
               >
-                <div className="accordion-item">
+                <div className="accordion-item mb-5 pb-5">
                   <h2
                     className="accordion-header d-flex"
                     style={{ paddingLeft: "20px" }}
